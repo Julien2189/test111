@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+              --gold: #d4a843;
+  --gold-light: #f0c96a;
+  --bg: #080809;
+  --bg2: #0e0e10;
+  --surface: #19191d;
+  --border: rgba(212,168,67,0.20);
+  --border-dim: rgba(255,255,255,0.07);
+  --text-2: #c8c2b8;
+}
+
+/* ── Reset ──────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
+/* ── Body ───────────────────────────────── */
+body {
+  margin: 0;
+  background: var(--bg);
+  font-family: Arial, sans-serif;
+}
+        .site-header{
+            position: relative ;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg2);
+        }
+
+        .logo {
+            color: var(--gold-light);
+            text-decoration: none; 
+            font-size: .85rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+                }
+        .burger-nav ul {
+            display: flex;
+            gap: 1.2rem;
+            list-style: none;
+        }
+        .burger-nav a {
+            text-decoration: none;
+            color: var(--text-2);
+            font-size: .75rem;
+            transition: color .2s;
+        }
+
+        .burger-nav a:hover  {
+            color:var(--gold)  ;
+        }
+        .burger-btn {
+            display: none;
+            flex-direction: column;
+            gap:5px ; 
+            background: none;
+            border: 1px solid var(--border-dim);
+            padding: .7rem; 
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .burger-btn span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background: var(--gold-light);
+            transition: transform .25s,opacity .25s ;
+        }
+        .burger-btn[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.burger-btn[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-btn[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+        /* ── Responsive mobile ──────────────────── */
+/* @media applique ces styles seulement si
+   l'écran fait 768px ou moins */
+@media (max-width: 768px) {
+
+  /* Le bouton devient visible en mobile */
+  .burger-btn {
+    display: flex;
+  }
+
+  /* Le menu est caché par défaut */
+  /* position: absolute le sort du flux normal
+     top le place sous le header
+     right le colle à droite */
+  .burger-nav {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 1rem;
+    width: 220px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  }
+
+  /* Quand la classe open est ajoutée, le menu apparaît */
+  .burger-nav.open {
+    display: block;
+  }
+
+  /* Les liens passent en colonne sur mobile */
+  .burger-nav ul {
+    flex-direction: column;
+    gap: .9rem;
+  }
+}
+h1  ,h2 ,h3{
+    color: white;
+}
+main {
+    display: flex;
+
+}
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <a href="#">Frontedn Mastery</a>
+        <button class="burger-btn" id="burger-btn"
+    aria-label="Ouvrir le menu"
+    aria-expanded="false"
+    aria-controls="burger-nav">
+    <span></span>
+    <span></span>
+    <span></span>
+        </button>
+
+        <nav class="burger-nav" id="burger-nav">
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Javascript</a></li>
+                <li><a href="#">TypeScript</a></li>
+                <li><a href="#">React</a></li>
+                <li><a href="#">Angular</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div>
+    <main>
+        <h1 >test</h1>
+    </main>
+    <aside>
+        <h2>test2</h2>
+    </aside>
+    </div>
+    <footer>
+
+    </footer>
+<script>
+    const burgerBtn = document.getElementById('burger-btn') ;
+    const burgerNav = document.getElementById('burger-nav') ;
+
+    if (burgerBtn && burgerNav) {
+        burgerBtn.addEventListener('click' , () =>{
+            const isOpen = burgerNav.classList.toggle("open") ;
+            burgerBtn.setAttribute("aria-expanded" , isOpen ? "true" : "false") ;
+        })
+    }
+</script>
+</body>
+</html>

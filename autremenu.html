@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
+        html {
+            font-size: 62.5%;
+        }
+       body {
+        font-size: 1.4rem;
+        font-family: 'quicksand' , "sans-serif" ; 
+        color:white ;
+        }
+        header{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+            align-items: center;
+            background-color: #6c7766;
+            border-bottom: 1px solid black;
+        }
+         .navbar-desktop{
+            height: 8rem;
+            line-height: 8rem;
+            text-align: center;
+        }
+        .navbar-mobile{
+            position: fixed;
+            top: 9px;
+            right: 15px;
+            font-size: 3rem ;
+            color:red ;
+        }
+      
+        .navbar-mobile .navbar-mobile-list{
+            display: flex ;
+            height: 100vh;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+         }
+         .navbar-mobile .navbar-mobile-list a {
+            font-size: 50px; 
+            font-weight: 800;
+            color: #1E2337;
+            padding: 2rem;
+         }
+         .navbar-desktop a {
+            padding: 10px;
+            justify-content: space-between;
+            align-items: center;
+         }
+         .navbar-mobile i {
+            position: fixed;
+            z-index: 9999;
+            top: 9px;
+            right: 15px;
+            font-size: 3rem;
+            color: white;
+         }
+         .navbar-mobile {
+            display: none;
+         }
+         .modal {    
+            background-color: #F92995;
+            height: 100vh;
+            position: fixed;
+            top: -100vh;
+            left: 0;
+            width: 100%;
+            opacity: 0.9;
+            transition:  top 0.9s;
+            
+         }
+         .container{
+            height: 100vh; 
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            background-color: #1E2337;
+         }
+         .banniere-titre {
+            margin-bottom: 1rem;
+         }
+         .change-modal{
+            top: 0;
+         }
+        @media screen and (max-width: 700px)  { 
+            .navbar-desktop{
+                display: none;
+            }
+            .navbar-mobile {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+
+        <div class="navbar-mobile">
+           <i class="fas fa-bars"></i>
+            <div class="modal">
+                <div class="navbar-mobile-list">
+                     <a href="#">Accueil</a>
+                    <a href="#">Services</a>
+                    <a href="#">A Propos</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Contact</a>
+                </div>
+                 
+            </div>
+        </div>
+
+        <div class="navbar-desktop">
+            <a href="#">Accueil</a>
+            <a href="#">Services</a>
+            <a href="#">A Propos</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
+        </div>
+
+        
+    </header>
+    <main>
+         <div class="container">
+        <div class="banniere-titre">
+            <h1>
+                BURGER MENU
+            </h1>
+        </div>
+    </div>
+    </main>
+    <aside></aside>
+    <footer></footer>
+    <script>
+        const icone = document.querySelector('.navbar-mobile i') ; 
+        console.log(icone) ;
+
+        const modal = document.querySelector('.modal') ;
+        console.log(modal) ;
+
+        icone.addEventListener('click' , ()=>{
+            console.log('icone cliquée') ;
+            modal.classList.toggle('change-modal') ;
+        });
+
+    </script>
+</body>
+</html>
