@@ -8,9 +8,9 @@
         :root{
               --gold: #d4a843;
   --gold-light: #f0c96a;
-  --bg: #080809;
-  --bg2: #0e0e10;
-  --surface: #19191d;
+  --bg: #343438;
+  --bg2: #c9c9d4;
+  --surface: #a7a7b6;
   --border: rgba(212,168,67,0.20);
   --border-dim: rgba(255,255,255,0.07);
   --text-2: #c8c2b8;
@@ -132,7 +132,44 @@ h1  ,h2 ,h3{
 }
 main {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    height: 100vh;
+    width: 100%;
 
+}
+.container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+p {
+    color: white;
+}
+.custom-modal{
+    position: fixed ;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0; 
+    pointer-events: none;
+    transition: opacity 0.3 ease;
+    z-index: 2000 ;
+}
+.custom-modal-open {
+    opacity: 1;
+    pointer-events: all;
+}
+.custom-modal-content {
+    position: relative; 
+    width: min(100% ,520px) ;
+    background:var(--bg-card);
+    border: 1px solid var(--border-hover);
+    border-radius: var();
 }
     </style>
 </head>
@@ -158,16 +195,25 @@ main {
             </ul>
         </nav>
     </header>
-    <div>
+    <div class="container">
     <main>
         <h1 >test</h1>
+        <button class="demo-btn">Ouvrir le modal</button>
+
+        <div class="custom-modal" id="customModal">
+            <div class="custum-modal-content">
+                <button class="custom-modal-close" id="closeModalBtn">X</button>
+                <h3>Bienvenue dans la modal</h3>
+                <p>Tu peux afficher un message ici</p>
+            </div>
+        </div>
     </main>
     <aside>
         <h2>test2</h2>
     </aside>
     </div>
     <footer>
-
+        <p>Fais avec amour </p>
     </footer>
 <script>
     const burgerBtn = document.getElementById('burger-btn') ;
