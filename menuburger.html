@@ -27,6 +27,7 @@
                 <li><a href="#">Angular</a></li>
             </ul>
         </nav>
+        <button id='burger1'>test</button>
     </header>
     <div class="container">
     <main>
@@ -43,7 +44,12 @@
         <button id="btn">supprime</button>
     </main>
     <aside>
-        <h2 class="h2">test2</h2>
+        <div class="menu" id="menu">
+            <h2>menu</h2>
+            <p>test1</p>
+            <p>test2</p>
+            <p>test3</p>
+        </div>
     </aside>
     </div>
     <footer>
@@ -82,21 +88,24 @@
      }) ;
 
      document.addEventListener('keydown' , (e) =>{
-        if(e.key === 'escape') {
+        if(e.key === 'Escape') {
             customModal.classList.remove('open') ; 
             document.body.style.overflow = '' ; 
         }
      });
      const titre= document.querySelector('h2') ;
      const btn = document.getElementById('btn') ;
+     const burger1 = document.getElementById('burger1') ;
+     const menu = document.getElementById('menu') ;
      btn.addEventListener('click' , () =>{
         if(titre.style.display ===  'none')  {
+            menu.style.display= "block" ;
             titre.style.display = "block" ;
             btn.textContent = "supprimer" ; 
         }
         else{
 
-     
+        menu.style.display= "none" ;
         titre.style.display= "none" ;
         btn.textContent = "ajouter" ;
            }

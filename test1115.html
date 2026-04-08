@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --font:linear-gradient(#1A51B8 ,#0f2a31 ) ; 
+            --header: #334155;
+        }
+        *{
+            margin: 0;
+            padding: 0 ;
+              box-sizing: border-box;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            min-height: 150vh;
+            background: var(--font) ;
+        }
+        .main{
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            background: linear-gradient(#1A51B8 ,#0f2a31 ) ;
+        }
+
+        .principal {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            min-height: 200vh;
+
+        }.header{
+            display: flex;
+            top:0;
+            position: sticky;
+            flex-direction: row;
+            height: 100%;
+            width: 100%;
+            color: antiquewhite;
+            background:var(--header);
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(0,210,255,0.4);
+            
+        }
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+        }
+        .nav {
+            display: flex; 
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            justify-content:center;
+        }
+        .nav ul {
+            display: flex;
+           
+            padding: 20px;
+            margin: 20px ; 
+            list-style-type: none;
+justify-content: end;
+            align-items: end;
+            gap: 20px;
+        }
+        .nav a {
+            display: flex;
+            justify-content: space-between;
+            color: aqua;
+            padding: 10px;
+            text-decoration:none;
+            
+
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <header class="header">
+        <div class="logo"><h1>titre</h1></div>
+        <div class="nav">
+            <nav>
+                <ul>
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">A propos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="principal">
+    <main class="main"><h1>Main</h1></main>
+    <aside class="aside"><h1>Aside</h1></aside>
+    <footer class="footer"></footer>
+    </div>
+    </div>
+</body>
+</html>
